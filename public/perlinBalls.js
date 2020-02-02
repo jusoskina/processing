@@ -1,6 +1,6 @@
 // lines drawn diagonally
 
-let gifLength = 1800;
+let gifLength = 400;
 let canvas;
 
 // let x1 = 0;
@@ -19,7 +19,7 @@ function setup() {
   canvas = p5canvas.canvas;
     background(0,179,255);
   
-  //capturer.start();
+  capturer.start();
 
 }
 
@@ -29,17 +29,21 @@ function draw() {
     strokeWeight(2); // Thicker
     rx = map(noise(xoff), 0, 1, 0, 100);
     ry = map(noise(yoff), 0, 1, 0, 100);
-    for (i = 0; i < 10; ++i){
-      for (j = 0; j < 10; ++j){
-        if((i%2===0 && j%2!==0) || (i%2!==0 && j%2===0)){
-          ellipse(i*100,j*100,rx,ry)
-        }else{
-          ellipse(i*100,j*100,ry,rx)
-        }
+    for (i = 0; i < 20; ++i){
+      for (j = 0; j < 20; ++j){
+          ellipse(i*50,j*50,rx,ry)
+          ellipse(i*50,j*50,ry,rx)
       }
     }
 
     //console.log(r)
     xoff += 0.01
     yoff += 0.01
+
+    if(frameCount < gifLength) {
+      capturer.capture(canvas);
+    }else if(frameCount === gifLength){
+      capturer.stop();
+      capturer.save();
+    }
 }
