@@ -4,20 +4,26 @@ let canvas;
 
 start = 0;
 inc = 0.008;
+let from;
+let to;
 
 
 let xoff = 0;
 let yoff = 5;
-paintColour = 255;
+paintColour = 0;
 additionPaint = 1;
 
 prevY = new Array(innerWidth).fill(0);
 
 
 function setup() {
+  from = color(32,	223,	110);
+  to = color(223,	32,	145);
+  colorMode(RGB); // Try changing to HSB.
+
   var p5canvas = createCanvas(400, 400);
   canvas = p5canvas.canvas;
-    background(0,179,255);
+    background(32,	223,	110);
   
   // capturer.start();
 
@@ -25,17 +31,25 @@ function setup() {
 
 function draw() {
   
-  background(204, 153, 255);
+  background(32,	223,	110);
   stroke(paintColour);
-  noFill();
+  //noFill();
  
   xoff = start;
 
 
   for (l = 0; l < 20; ++l){
+    if(l%2 === 0) {
+      fill(paintColour);
+    }else{
+      fill(lerpColor(from, to, 1/20*l));
+    }
     beginShape();
+
+    vertex(innerWidth-1, innerHeight-1);
+    vertex(0, innerHeight-1);
+
     for(x = 0; x < innerWidth; ++x) {
-      stroke(paintColour);
       var y = noise(xoff) * innerHeight/10 + prevY[x];
       vertex(x,y);
 
@@ -43,6 +57,8 @@ function draw() {
       prevY[x] = y;
       
     }
+    vertex(innerWidth-1, innerHeight-1);
+
     endShape()
   }
   
