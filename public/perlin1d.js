@@ -3,9 +3,10 @@ let gifLength = 400;
 let canvas;
 
 start = 0;
-inc = 0.008;
+inc = 0.007;
 let from;
 let to;
+var p5canvas;
 
 
 let xoff = 0;
@@ -17,21 +18,22 @@ prevY = new Array(innerWidth).fill(0);
 
 
 function setup() {
-  from = color(32,	223,	110);
-  to = color(223,	32,	145);
+  from = color(0, 0, 255);
+  to = color(204, 255, 255);
   colorMode(RGB); // Try changing to HSB.
 
-  var p5canvas = createCanvas(400, 400);
+  p5canvas= createCanvas(400, 400);
   canvas = p5canvas.canvas;
     background(32,	223,	110);
   
   // capturer.start();
 
+
 }
 
 function draw() {
   
-  background(32,	223,	110);
+  background(0, 0, 255);
   stroke(paintColour);
   //noFill();
  
@@ -61,9 +63,11 @@ function draw() {
 
     endShape()
   }
-  
+  saveCanvas(p5canvas, 'myCanvas', 'jpg');
   noLoop()
-  //start += inc;
+  start += inc;
+
+
 
    
     // if(frameCount < gifLength) {
