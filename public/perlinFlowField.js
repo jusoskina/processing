@@ -8,6 +8,7 @@ var zoff = 0;
 
 function setup() {
   //createCanvas(200, 200, SVG);
+  background(255)
   createCanvas(200, 200);
   //pixelDensity(1);
   cols = floor(width/scl)
@@ -20,7 +21,6 @@ function setup() {
 }
 
 function draw() {
-  background(255)
   randomSeed(10)
   var yoff = 0;
   for (var y = 0; y < rows; y++) {
