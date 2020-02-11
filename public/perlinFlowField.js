@@ -47,8 +47,8 @@ function draw() {
   for(var i = 0; i < particles.length; ++i){
     particles[i].follow(flowField)
     particles[i].update()
-    particles[i].show()
     particles[i].edges()
+    particles[i].show()
   }
   //save("mySVG.svg");
   //noLoop()
