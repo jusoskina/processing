@@ -1,23 +1,32 @@
 
-var inc = 0.1;
-var scl = 10;
+var inc = 0.2;
+var scl = 50;
 var cols, rows;
 var zoff = 0;
   var particles = []
   var flowField
+  gifLength = 300
+  let canvas;
+
 
 function setup() {
-  //createCanvas(200, 200, SVG);
+  //createCanvas(400, 400, SVG)
+  //createCanvas(400, 400);
+  var p5canvas = createCanvas(400, 400);
+  canvas = p5canvas.canvas;
   background(255)
-  createCanvas(200, 200);
+
+
   //pixelDensity(1);
   cols = floor(width/scl)
   rows = floor(height/scl)
 
   flowField = new Array(cols*rows)
-  for(var i = 0; i < 200; ++i){
+  for(var i = 0; i < 20; ++i){
     particles[i] = new Particle()
   }
+
+  capturer.start();
 }
 
 function draw() {
@@ -50,6 +59,18 @@ function draw() {
     particles[i].edges()
     particles[i].show()
   }
-  //save("mySVG.svg");
-  //noLoop()
+
+  // if(frameCount === 1000){
+  //   noLoop();
+  //   //save("mySVG.svg");
+  // }
+
+  if(frameCount < gifLength) {
+    console.log(frameCount)
+      capturer.capture(canvas);
+  }else if(frameCount === gifLength){
+    //capturer.stop();
+    //capturer.save();
+    noLoop();
+  }
 }

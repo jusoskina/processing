@@ -18,10 +18,11 @@ function Particle() {
     }
 
     this.show = function() {
-        stroke(0,5)
+        stroke(0,7)
+        //stroke(0)
         strokeWeight(1)
         line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y)
-        //point(t)
+        this.updatePrev()
     }
 
     this.follow = function(vectors) {
