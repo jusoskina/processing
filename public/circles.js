@@ -1,12 +1,13 @@
-var sets = 100;
+var sets = 4;
 var x;
 var y;
 var circles;
 
 function setup(){
-  createCanvas(400,400,SVG);
+  createCanvas(200,200,SVG);
   noStroke();
-  fill(255)
+  //fill(255)
+  noFill()
   background(255);
 }
 

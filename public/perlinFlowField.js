@@ -10,10 +10,10 @@ var zoff = 0;
 
 
 function setup() {
-  //createCanvas(400, 400, SVG)
+  createCanvas(400, 400, SVG)
   //createCanvas(400, 400);
-  var p5canvas = createCanvas(400, 400);
-  canvas = p5canvas.canvas;
+  // var p5canvas = createCanvas(400, 400);
+  // canvas = p5canvas.canvas;
   background(255)
 
 
@@ -22,11 +22,11 @@ function setup() {
   rows = floor(height/scl)
 
   flowField = new Array(cols*rows)
-  for(var i = 0; i < 20; ++i){
+  for(var i = 0; i < 10; ++i){
     particles[i] = new Particle()
   }
 
-  capturer.start();
+  //capturer.start();
 }
 
 function draw() {
@@ -50,7 +50,7 @@ function draw() {
       // pop()
     }
     yoff += inc;
-    zoff += 0.0004;
+    zoff += 0.0008;
   }
 
   for(var i = 0; i < particles.length; ++i){
@@ -60,17 +60,17 @@ function draw() {
     particles[i].show()
   }
 
-  // if(frameCount === 1000){
-  //   noLoop();
-  //   //save("mySVG.svg");
-  // }
-
-  if(frameCount < gifLength) {
-    console.log(frameCount)
-      capturer.capture(canvas);
-  }else if(frameCount === gifLength){
-    //capturer.stop();
-    //capturer.save();
+  if(frameCount === 200){
     noLoop();
+    save("mySVG.svg");
   }
+
+  // if(frameCount < gifLength) {
+  //   console.log(frameCount)
+  //     capturer.capture(canvas);
+  // }else if(frameCount === gifLength){
+  //   capturer.stop();
+  //   capturer.save();
+  //   noLoop();
+  // }
 }
