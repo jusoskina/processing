@@ -5,7 +5,7 @@
 // Based on: https://en.wikipedia.org/wiki/Rose_(mathematics)
 
 var d = 31;
-var n = 2;
+var n = 18;
 var sliderD;
 var sliderN;
 
@@ -44,25 +44,25 @@ function draw() {
   endShape(CLOSE);
   pop();
 
-   push();
-  translate(width / 2, height / 2);
-  beginShape();
-  stroke(255,0,255);
-  noFill();
-  strokeWeight(2);
+  //  push();
+  // translate(width / 2, height / 2);
+  // beginShape();
+  // stroke(255,0,255);
+  // noFill();
+  // strokeWeight(2);
 
-  for (let i = 0; i < 361; i++) {
-    let k = i;
-    let r = 200 * sin(n*k);
-    // r = abs(r);
-    let x = r * cos(k);
-    let y = r * sin(k);
-    vertex(x,y);    
-  }
-  endShape(CLOSE);
-  pop()
+  // for (let i = 0; i < 361; i++) {
+  //   let k = i;
+  //   let r = 200 * sin(n*k);
+  //   // r = abs(r);
+  //   let x = r * cos(k);
+  //   let y = r * sin(k);
+  //   vertex(x,y);    
+  // }
+  // endShape(CLOSE);
+  // pop()
   //pop()
-  save("mauer.svg");
+  save("vanya.svg");
   noLoop();
 }
 
