@@ -1,8 +1,4 @@
-// Daniel Shiffman
-// http://codingtra.in
-// Mathematical Roses
-// Video: https://youtu.be/f5QBExMNB1I
-// Based on: https://en.wikipedia.org/wiki/Rose_(mathematics)
+
 
 var d = 31;
 var n = 18;
