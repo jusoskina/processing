@@ -1,10 +1,10 @@
 const url = 'https://quickdrawfiles.appspot.com/drawing/cat?isAnimated=false&format=json&origin=*&key='
-let rootNum = 2
+let rootNum = 10
 let count = 0
 let cats = []
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400, SVG);
   index = 0
   for(let h = 0; h < rootNum; ++h){
     for(let w = 0; w < rootNum; ++w){
@@ -12,6 +12,7 @@ function setup() {
       ++index
     }
   }
+  save("honeycomb.svg");
 }
 
 function preload(){
@@ -36,8 +37,9 @@ function gotDrawing(data) {
 function drawCat(drawing, h, w) {
   console.log(drawing)
   push()
-  scale(1/rootNum)
+  strokeWeight(2)
   translate(width/rootNum*w, height/rootNum*h)
+  scale(1/(rootNum))
   if (drawing) {
     for(let path of drawing) {
       noFill()
