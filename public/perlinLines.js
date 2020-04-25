@@ -17,7 +17,7 @@ prevY = new Array(innerWidth).fill(0);
 
 function setup() {
 
- createCanvas(400, 400, SVG);
+ createCanvas(400, 400);
 
 
 
@@ -51,7 +51,7 @@ function draw() {
 
     endShape()
   }
-  save("lines.svg");
+  //save("lines.svg");
   noLoop()
   start += inc;
 }
