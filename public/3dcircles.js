@@ -2,7 +2,7 @@ var sets = 4;
 var x;
 var y;
 var circles;
-var spots = 200;
+var spots = 400;
 
 function setup(){
   createCanvas(840, 594);
@@ -13,7 +13,7 @@ function setup(){
 }
 
 function draw(){
-    var diameter = 100
+    var diameter = 400
     // x = 200
     // y = 200
     // var xS, yS
@@ -50,8 +50,8 @@ function draw(){
     // translate (-x, -y)
 
 
-    x = 400
-    y = 200
+    x = width/2
+    y = height/2
     var xS, yS
     var randR, randAng
     stroke(0)
@@ -59,7 +59,7 @@ function draw(){
     
     translate(x,y)
     for(var i = 0; i < spots; ++i){
-      randR = randomGaussianPos(0,10, diameter/2)
+      randR = randomGaussianPos(0,diameter/5, diameter/2)
       randAng = Math.random() * 2*Math.PI
       randL = Math.random()*PI/2
       xS = randR*Math.cos(randAng)
