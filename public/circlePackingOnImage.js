@@ -9,14 +9,15 @@ var circles = [];
 var spots = []
 k = 0
 var img
+var maxR = 10
 
 function preload() {
-  img = loadImage('assets/giraffeSS2.png');
+  img = loadImage('assets/hedgehog.png');
 
 }
 
 function setup() {
-  createCanvas(img.width, img.height);
+  createCanvas(img.width, img.height, SVG);
   var density = displayDensity();
   pixelDensity(1);
   img.loadPixels()
@@ -27,7 +28,7 @@ function setup() {
       if(c != null){
         //var b = brightness([c])
         // console.log(x + ' ' + y + ' ' + c)
-        if(c < 10){
+        if(c < 100){
           spots.push(createVector(x, y));
         }
       }
@@ -55,6 +56,10 @@ function draw() {
           if (d - 1 < c.r + other.r) {
             c.growing = false;
           }
+        }
+        if (c.r > maxR){
+          //console.log(c.r)
+          c.growing = false
         }
       }
       
@@ -87,9 +92,9 @@ function draw() {
       var c = circles[i];
       c.show();
     }
+    save("hedgehog.svg");
     noLoop();
     console.log("finished");
-    // save("packing.svg");
 
   }
 }
@@ -143,6 +148,6 @@ Circle.prototype.grow = function() {
 Circle.prototype.show = function() {
   noFill();
   strokeWeight(1.5);
-  stroke(255, 0, 175, 225);
+  stroke(0,0,0);
   ellipse(this.x, this.y, this.r * 2);
 }
