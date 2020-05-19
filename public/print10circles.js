@@ -11,9 +11,13 @@ function setup() {
 function draw() {
   stroke(0)
   if(random(1) > prob){
-    line(x,y,x+spacing,y+spacing)
+    //line(x,y,x+spacing,y+spacing)
+    arc(x,y, spacing, spacing, 0, HALF_PI)
+    arc(x+spacing,y+spacing, spacing, spacing, PI, PI + HALF_PI)
   }else{
-    line(x,y+spacing,x+spacing,y)
+    //line(x,y+spacing,x+spacing,y)
+    arc(x+spacing,y, spacing, spacing, HALF_PI, PI)
+    arc(x,y+spacing, spacing, spacing, PI + HALF_PI, 2*PI)
   }
   x = x+spacing
   if (x > width){
@@ -24,7 +28,7 @@ function draw() {
   }
 
   if(y > height){
-    save("10print.svg");
+    // save("10print.svg");
     noLoop()
   }
 
